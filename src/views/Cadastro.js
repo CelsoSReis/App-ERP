@@ -2,9 +2,24 @@ import React, {useState, useEffect} from "react";
 import { KeyboardAvoidingView, View, Image, TextInput, TouchableOpacity, Text, Platform} from "react-native";
 //style css
 import { styles } from "../../assets/css/Style";
+//firebase
+import { auth } from "../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 
 export default function Cadastro(){
     const [display, setDisplay]=useState('none');
+
+    useEffect(() => {
+        createUserWithEmailAndPassword(auth, "celsosr87@reisweb.com", "123456")
+        .then((dadosDoUsuario) => {
+          console.log(dadosDoUsuario)
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+    }, [])
+
     return(
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.container, styles.backgroundLogin]}>
             <View>
