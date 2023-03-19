@@ -3,37 +3,33 @@ import { KeyboardAvoidingView, View, Image, TextInput, TouchableOpacity, Text, P
 //style css
 import { styles } from "../../assets/css/Style";
 //firebase
-import { auth } from "../config/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import { cadastrar } from "../servicos/requisicoesFirebase";
 
 export default function Cadastro(){
-    const [display, setDisplay]=useState('none');
-
-    useEffect(() => {
-        createUserWithEmailAndPassword(auth, "celsosr87@reisweb.com", "123456")
-        .then((dadosDoUsuario) => {
-          console.log(dadosDoUsuario)
-        })
-        .catch((error) => {
-            console.log(error)
-        });
-    }, [])
+    //const [display, setDisplay]=useState('');
+    const [email, setEmail]=useState('');
+    const [senha, setSenha]=useState('');
+    const [confirmaSenha, setConfirmaSenha]=useState('');
+    //envio do cadastro 
+    async function realizarCadastro(){
+        await cadastrar(email, senha, confirmaSenha);
+        setEmail('')
+        setSenha('')
+        setConfirmaSenha('')
+    }
+    
 
     return(
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.container, styles.backgroundLogin]}>
             <View>
                 <Image source={require('../../assets/logo.png')} style={styles.imagem_Login} />
             </View>
-            <View>
-                <Text style={styles.erro_Login(display)}>Cadastro Realizado!!</Text>
-            </View>
             <View style={styles.formulario_Login}>
-                <TextInput style={styles.input_Login} placeholder="Usuário" />
-                <TextInput style={styles.input_Login} placeholder="Senha" secureTextEntry={true}/>
-                <TextInput style={styles.input_Login} placeholder="Confirmar Senha" secureTextEntry={true}/>
+                <TextInput style={styles.input_Login} placeholder="Usuário" onChangeText={text=>setEmail(text)} />
+                <TextInput style={styles.input_Login} placeholder="Senha" secureTextEntry={true} onChangeText={text=>setSenha(text)}/>
+                <TextInput style={styles.input_Login} placeholder="Confirmar Senha" secureTextEntry={true} onChangeText={text=>setConfirmaSenha(text)}/>
 
-                <TouchableOpacity style={styles.botao_Login} onPress={()=>setDisplay('flex')}>
+                <TouchableOpacity style={styles.botao_Login} onPress={()=>realizarCadastro()}>
                     <Text style={styles.botao_Logintexto}>Entrar</Text>
                 </TouchableOpacity>
             </View>
