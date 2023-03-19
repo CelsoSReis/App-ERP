@@ -9,17 +9,28 @@ const styles = StyleSheet.create({
     },
     containerHome: {
       flex: 1,
-      flexDirection:'column',
+      flexDirection:'row',
       backgroundColor: '#fff',
       alignItems: 'center',
       padding: 15
     },
     botaoHome:{
-      margin: 20,
+      flex:1,
+      alignItems: "center",
+      width: 20,
+      height: 30
     },
     imageContainer: {
       flex: 1,
       paddingTop: 58,
+    },
+    imgCadastrar: {
+      width: 50,
+      height: 50,
+    },
+    imgLogin: {
+      width: 48,
+      height: 48,
     },
     texto: {
       color: "#000",

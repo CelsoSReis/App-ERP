@@ -1,6 +1,5 @@
 import React from 'react';
 //css
-import { styles } from './assets/css/Style';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {Home, Login, PainelAdmin, Cadastro} from './src/views';
@@ -17,8 +16,8 @@ export default function App() {
           component={Home}
           options={{
             title:"Bem Vindo",
-            headerStyle:{backgroundColor:'green'},
-            headerTintColor:"#333",
+            headerStyle:{backgroundColor:'#C0392B'},
+            headerTintColor:"white",
             headerTitleAlign:'center',
             headerTitleStyle:{fontWeight:'bold'}
           }} />
