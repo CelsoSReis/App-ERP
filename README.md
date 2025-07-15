@@ -49,3 +49,18 @@ npm install
 ```bash
 npx expo start
 ```
+📂 Estrutura do Projeto
+
+App-ERP/
+├── src/
+│   ├── components/       # Componentes reutilizáveis (Header, Card, etc.)
+│   ├── pages/            # Telas principais (Home, Cadastro, etc.)
+│   ├── routes/           # Configuração de navegação
+│   └── utils/            # Funções auxiliares e helpers
+├── App.js
+├── app.json
+└── package.json
+
+🤝 Contribuições
+Contribuições são bem-vindas!
+Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias, novas funcionalidades ou correções de bugs.
