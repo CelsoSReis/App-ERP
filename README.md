@@ -51,6 +51,7 @@ npx expo start
 ```
 📂 Estrutura do Projeto
 
+```bash
 App-ERP/
 ├── src/
 │   ├── components/       # Componentes reutilizáveis (Header, Card, etc.)
@@ -60,7 +61,7 @@ App-ERP/
 ├── App.js
 ├── app.json
 └── package.json
-
+```
 🤝 Contribuições
 Contribuições são bem-vindas!
 Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias, novas funcionalidades ou correções de bugs.
